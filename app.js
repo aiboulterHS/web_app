@@ -16,7 +16,7 @@ app.set("view engine", "ejs");
 
 const MongoClient = require('mongodb').MongoClient;
 
-const CONNECTION_URL = "mongodb+srv://AidanCB:CYMn9e5aRngcSZ9r@cluster0.3go8who.mongodb.net/test?retryWrites=true&w=majority";
+const CONNECTION_URL = "mongodb+srv://Aidanbbb:UeImCSfwFV0L1MZk@cluster0.8ca9hfw.mongodb.net/test";
 const DATABASE_NAME = "newdb"; // you can change the database name
 var database, collection;
 
@@ -25,6 +25,10 @@ MongoClient.connect(CONNECTION_URL, { useNewUrlParser: true }, (error, client) =
 
   database = client.db(DATABASE_NAME);
   collection = database.collection("newcollection"); // you can change the collection name
+  app.listen(3000, () => {
+    console.log('This app is running on port 3000')
+   
+   });
 });
 
 app.post("/", (req, res, next) => {
@@ -92,8 +96,5 @@ app.post("/", (req, res, next) => {
   res.redirect('/');
 });
 
-app.listen(3000, () => {
- console.log('This app is running on port 3000')
 
-});
 
