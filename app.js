@@ -29,10 +29,14 @@ MongoClient.connect(CONNECTION_URL, { useNewUrlParser: true }, (error, client) =
 
 app.post("/", (req, res, next) => {
   //storing a submission into the database
-  collection.insertOne(req.body, (err,results) => {
-    if (err) return console.log(err)
-    console.log('saved to database');
-})
+  setTimeout(() => {
+		collection.insertOne(req.body, (err, result) => {
+			if (err) return console.log(err)
+			console.log('saved to database');
+
+		})
+	}, 1000);
+
 
 
  function formv3(){
